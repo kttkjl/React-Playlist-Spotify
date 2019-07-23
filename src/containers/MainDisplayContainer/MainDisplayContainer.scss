@@ -1,0 +1,24 @@
+.MaindisplayContainer {
+  background-color: $bg-color-light;
+  width: 100%;
+  transition: width 0.25s;
+  margin-right: 1rem;
+  /* Optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: #ff0000;
+  }
+
+  /*When it is big enough*/
+  @media screen and (min-width: 768px) {
+    margin-right: 0;
+    width: 70%;
+    height: 100%;
+  }
+}
+
+.LibraryContainer {
+  background-color: $bg-color-primary;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
