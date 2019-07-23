@@ -1,4 +1,6 @@
 import React from "react";
+import Octicon, { ThreeBars } from "@primer/octicons-react";
+import Dropdown from "../Dropdown/Dropdown";
 
 const BrowseCard = ({ song }) => {
   return (
@@ -14,6 +16,10 @@ const BrowseCard = ({ song }) => {
         <p className="card-text">
           <small className="text-white">{song.album}</small>
         </p>
+      </div>
+      <div className="d-flex justify-content-end">
+        {/* <Octicon icon={ThreeBars} size="medium" verticalAlign="middle" /> */}
+        <Dropdown />
       </div>
     </div>
   );

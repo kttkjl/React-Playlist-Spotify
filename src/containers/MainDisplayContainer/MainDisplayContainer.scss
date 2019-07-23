@@ -3,9 +3,10 @@
   width: 100%;
   transition: width 0.25s;
   margin-right: 1rem;
+
   /* Optional: show position indicator in red */
   ::-webkit-scrollbar-thumb {
-    width: 10px;
+    // width: 10px;
     background: #ff0000;
   }
 

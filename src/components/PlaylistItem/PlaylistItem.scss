@@ -4,7 +4,8 @@
   margin: 0.5em 0;
   border-bottom: 1px solid lightgrey;
 
-  &-desc {
+  &-desc,
+  &-menu {
     min-width: 0;
   }
 
@@ -12,15 +13,20 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 1em;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
     min-width: 0;
+    width: auto;
   }
-  h5 {
+  p {
+    margin: 0;
+    margin-bottom: 0.2rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 0.9em;
+    font-size: 0.75rem;
     min-width: 0;
+    width: auto;
   }
 }
 .PlaylistItem:last-child {

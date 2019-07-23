@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Octicon, {
+  Play,
+  TriangleLeft,
+  TriangleRight,
+  Unmute
+} from "@primer/octicons-react";
 import "./App.scss";
 import PlaylistContainer from "./containers/PlaylistContainer/PlaylistContainer";
 import MainDisplayContainer from "./containers/MainDisplayContainer/MainDisplayContainer";
@@ -39,17 +45,28 @@ function App() {
 
   return (
     <div className="App vh-100">
-      {/* {playlists.map((playlist, idx) => {
-        return <div key={playlist.id}>{playlist.name}</div>;
-      })} */}
       <div className="d-flex flex-column align-items-start h-100">
         <section className="d-flex flex-grow-1 vw-100 position-relative overflow-hidden">
           <MainDisplayContainer library={library} />
           <PlaylistContainer playlists={playlists} library={library} />
         </section>
-        <section style={{ color: "white" }} className="Playbar">
-          THIS BE PLAY BAR
+        <section className="Playbar Playbar-container d-flex ">
+          <section className="Playbar-display d-flex flex-column text-white text-center align-self-center">
+            <p className="m-0">Song Title</p>
+            <p className="m-0">
+              <small>Artist : Album</small>
+            </p>
+          </section>
+          <section
+            className="Playbar-controls d-flex flex-row align-self-center justify-content-center"
+            style={{ color: "white" }}
+          >
+            <Octicon size="medium" icon={TriangleLeft} />
+            <Octicon size="medium" icon={Play} />
+            <Octicon size="medium" icon={TriangleRight} />
+          </section>
         </section>
+
         <section className="PlaylistLibraryToggle d-flex flex-row">
           <button className="d-flex flex-grow-1">
             <span>Playlist</span>

@@ -3,7 +3,7 @@ import BrowseCard from "../../components/BrowseCard/BrowseCard";
 
 const MainDisplayContainer = ({ library }) => {
   return (
-    <section className="MaindisplayContainer d-flex flex-column">
+    <section className="MaindisplayContainer d-flex flex-grow-1 flex-column">
       <nav>
         <h1>Browse</h1>
         <section className="SearchBar">

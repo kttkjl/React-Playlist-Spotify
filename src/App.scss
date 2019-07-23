@@ -6,14 +6,22 @@
 }
 
 ::-webkit-scrollbar {
-  width: 0px; /* Remove scrollbar space */
-  background: transparent; /* Optional: just make scrollbar invisible */
+  width: 0.25rem; /* Remove scrollbar space */
+  background: $content-color; /* Optional: just make scrollbar invisible */
 }
 
 .Playbar {
   width: 100%;
-  background-color: $bg-color-dark;
-  min-height: 4rem;
+  background-color: $content-color-dark;
+  &-container {
+    flex-direction: column;
+  }
+  &-controls {
+    width: 300px;
+    svg {
+      margin: 0 1rem;
+    }
+  }
 }
 
 .PlaylistLibraryToggle {
@@ -21,18 +29,19 @@
   max-height: 3rem;
   min-height: 1.5rem;
   background-color: $bg-color-dark;
+  overflow: hidden;
 }
 
 /* Toggle bottom bar */
 .PlaylistLibraryToggle button {
-  background-color: $bg-color-dark;
+  background-color: $content-color-dark;
   color: $content-color;
   border: none;
   justify-content: center;
   outline: none;
 }
 .PlaylistLibraryToggle button:hover {
-  background-color: rgba($bg-color-light, 0.4);
+  background-color: rgba($content-color, 0.1);
 }
 
 /*When it is big enough*/
@@ -41,5 +50,12 @@
     height: 0;
     min-height: 0;
     overflow: hidden;
+  }
+
+  .Playbar {
+    padding-bottom: 1rem;
+    &-container {
+      // flex-direction: row;
+    }
   }
 }
