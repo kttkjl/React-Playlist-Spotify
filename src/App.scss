@@ -5,6 +5,11 @@
   --mob-break: 768px;
 }
 
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
 .Playbar {
   width: 100%;
   background-color: $bg-color-dark;

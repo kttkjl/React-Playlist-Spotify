@@ -1,0 +1,29 @@
+.PlaylistItem {
+  font-size: 16px;
+  white-space: nowrap;
+  margin: 0.5em 0;
+  border-bottom: 1px solid lightgrey;
+
+  &-desc {
+    min-width: 0;
+  }
+
+  h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1em;
+    min-width: 0;
+  }
+  h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.9em;
+    min-width: 0;
+  }
+}
+.PlaylistItem:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}

@@ -1,0 +1,102 @@
+.PlaylistContainer {
+  background-color: $bg-color-dark;
+  color: $content-color;
+  width: 0.5rem;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  transition: width 0.25s;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+
+  &-overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: width 0.25s ease-in-out;
+    width: 0;
+    height: 100%;
+    &.active {
+      width: 100vw;
+    }
+  }
+
+  ::before {
+    content: "\A";
+    border-style: solid;
+    border-width: 20px;
+    left: -40px;
+    border-color: transparent $bg-color-dark transparent transparent;
+    display: block;
+    position: absolute;
+    top: 50%;
+  }
+
+  &.active {
+    width: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .collapseable {
+    &.closed {
+      max-height: 0;
+      max-width: 0;
+    }
+    padding: 0.25em 0;
+    transition: max-width 0.5s ease-in-out;
+    max-height: 900vh;
+    max-width: 900vw;
+  }
+
+  &-contents {
+    overflow: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  span {
+    overflow: hidden;
+  }
+
+  h3 {
+    // padding: 0.25em;
+    margin: 0;
+    padding: 0.5em 0;
+    font-size: 1.25em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  /*When it is big enough*/
+  @media screen and (min-width: 768px) {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-width: (768 * 0.4) + px;
+    width: 30%;
+    height: 100%;
+
+    ::before {
+      display: none;
+    }
+
+    &-contents {
+      height: auto;
+      width: 100%;
+    }
+
+    // Overrides if user decides to be cute
+    &.active {
+      width: 30%;
+    }
+
+    &-overlay {
+      &.active {
+        width: 0;
+      }
+    }
+  }
+}
