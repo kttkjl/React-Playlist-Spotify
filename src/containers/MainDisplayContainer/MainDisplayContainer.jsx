@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import BrowseCard from "../../components/BrowseCard/BrowseCard";
+import { playListContext } from "../../App";
 
 const MainDisplayContainer = ({ library }) => {
+  const plCont = useContext(playListContext);
+
   return (
     <section className="MaindisplayContainer d-flex flex-grow-1 flex-column">
       <nav>
@@ -10,7 +13,7 @@ const MainDisplayContainer = ({ library }) => {
           <input type="text" />
         </section>
         <section className="FilterBar d-flex">
-          <span>Filter by</span>
+          <p>Filter by</p>
           <ul style={{ listStyle: "none", display: "flex" }}>
             <li>Artist</li>
             <li>Name</li>
@@ -18,6 +21,13 @@ const MainDisplayContainer = ({ library }) => {
             <li>Duration</li>
           </ul>
         </section>
+        <button
+          onClick={() => {
+            plCont.clearPlaylists();
+          }}
+        >
+          KILL
+        </button>
       </nav>
       <section className="LibraryContainer d-flex flex-wrap justify-content-sm-center flex-shrink-1">
         {library ? (

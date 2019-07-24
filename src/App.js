@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import Octicon, {
   Play,
   TriangleLeft,
-  TriangleRight,
-  Unmute
+  TriangleRight
 } from "@primer/octicons-react";
 import "./App.scss";
 import PlaylistContainer from "./containers/PlaylistContainer/PlaylistContainer";
 import MainDisplayContainer from "./containers/MainDisplayContainer/MainDisplayContainer";
+import FullScreenOverlay from "./components/FullScreenOverlay/FullScreenOverlay";
 let playlistUtils = require("./api-utils/playlist");
 let libraryUtils = require("./api-utils/library");
 
-// const AddToPlaylistContext = React.createContext();
+export const playListContext = React.createContext();
 
 function App() {
   const [playlists, setPlayLists] = useState([{}]);
@@ -34,6 +34,23 @@ function App() {
     setLibrary(lib);
   };
 
+  // Testing function passes
+  const clearPlaylists = () => {
+    setPlayLists([]);
+  };
+
+  const savePlaylist = async (playlistId, songs) => {
+    // setPlayLists( playlists => ({...playlists, }))
+    try {
+      let res = await playlistUtils.savePlaylist(playlistId, songs);
+      console.log(res);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const addSongToPlaylist = (pl, song) => {};
+
   useEffect(() => {
     // ComponentDidMount
     getPlaylists();
@@ -44,39 +61,48 @@ function App() {
   }, []);
 
   return (
-    <div className="App vh-100">
-      <div className="d-flex flex-column align-items-start h-100">
-        <section className="d-flex flex-grow-1 vw-100 position-relative overflow-hidden">
-          <MainDisplayContainer library={library} />
-          <PlaylistContainer playlists={playlists} library={library} />
-        </section>
-        <section className="Playbar Playbar-container d-flex ">
-          <section className="Playbar-display d-flex flex-column text-white text-center align-self-center">
-            <p className="m-0">Song Title</p>
-            <p className="m-0">
-              <small>Artist : Album</small>
-            </p>
-          </section>
-          <section
-            className="Playbar-controls d-flex flex-row align-self-center justify-content-center"
-            style={{ color: "white" }}
-          >
-            <Octicon size="medium" icon={TriangleLeft} />
-            <Octicon size="medium" icon={Play} />
-            <Octicon size="medium" icon={TriangleRight} />
-          </section>
-        </section>
+    // <>
 
-        <section className="PlaylistLibraryToggle d-flex flex-row">
-          <button className="d-flex flex-grow-1">
-            <span>Playlist</span>
-          </button>
-          <button className="d-flex flex-grow-1">
-            <span>Library</span>
-          </button>
-        </section>
+    <playListContext.Provider
+      value={{
+        clearPlaylists
+      }}
+    >
+      <FullScreenOverlay />
+      <div className="App vh-100">
+        <div className="d-flex flex-column align-items-start h-100">
+          <section className="d-flex flex-grow-1 vw-100 position-relative overflow-hidden">
+            <MainDisplayContainer library={library} />
+            <PlaylistContainer playlists={playlists} library={library} />
+          </section>
+          <section className="Playbar Playbar-container d-flex ">
+            <section className="Playbar-display d-flex flex-column text-white text-center align-self-center">
+              <p className="m-0">Song Title</p>
+              <p className="m-0">
+                <small>Artist : Album</small>
+              </p>
+            </section>
+            <section
+              className="Playbar-controls d-flex flex-row align-self-center justify-content-center"
+              style={{ color: "white" }}
+            >
+              <Octicon size="medium" icon={TriangleLeft} />
+              <Octicon size="medium" icon={Play} />
+              <Octicon size="medium" icon={TriangleRight} />
+            </section>
+          </section>
+
+          <section className="PlaylistLibraryToggle d-flex flex-row">
+            <button className="d-flex flex-grow-1">
+              <span>Playlist</span>
+            </button>
+            <button className="d-flex flex-grow-1">
+              <span>Library</span>
+            </button>
+          </section>
+        </div>
       </div>
-    </div>
+    </playListContext.Provider>
   );
 }
 

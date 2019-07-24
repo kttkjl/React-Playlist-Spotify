@@ -29,13 +29,13 @@ const Dropdown = ({ menuItems }) => {
   let [triggered, setTriggered] = useState(false);
 
   useEffect(() => {
-    console.log("effect triggered", triggered);
+    // console.log("effect triggered", triggered);
     if (triggered) {
       document.addEventListener("click", closeMenu);
     }
     return () => {
       document.removeEventListener("click", closeMenu);
-      console.log("cleanup");
+      // console.log("cleanup");
     };
   }, [triggered]);
 
@@ -46,14 +46,15 @@ const Dropdown = ({ menuItems }) => {
   };
 
   const closeMenu = evt => {
+    evt.stopPropagation();
     setTriggered(false);
-    console.log("closed");
+    // console.log("closed");
   };
 
   return (
     <section className="Dropdown-container" onClick={openMenu}>
       <div className="Dropdown-trigger">
-        <Octicon icon={ThreeBars} size="medium" />
+        <Octicon icon={ThreeBars} size="small" />
       </div>
       {triggered ? (
         <div className="Dropdown-menu d-flex flex-column">

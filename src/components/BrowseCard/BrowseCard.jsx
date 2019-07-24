@@ -8,6 +8,7 @@ const BrowseCard = ({ song }) => {
       <img
         className="card-img-top"
         src="https://i.imgur.com/nvK2vj3.png"
+        // src="https://i.imgur.com/CyZ6yh9.png"
         alt="Card image cap"
       />
       <div className="card-body">

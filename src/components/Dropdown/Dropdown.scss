@@ -25,5 +25,9 @@
     background-color: $bg-color-dark;
     color: $content-color;
     outline: none;
+    border-bottom: solid 1px $content-color;
+    &:last-child {
+      border: none;
+    }
   }
 }
