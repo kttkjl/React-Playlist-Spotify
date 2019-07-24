@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import $ from "jquery";
 import Octicon, { X, Trashcan, Plus } from "@primer/octicons-react";
 import PlaylistItem from "../../components/PlaylistItem/PlaylistItem";
 import Dropdown from "../../components/Dropdown/Dropdown";
+import FullScreenOverlay from "../../components/FullScreenOverlay/FullScreenOverlay";
 
 // const propTypes = {
 //   song: PropTypes.shape({
@@ -58,12 +59,70 @@ const onDeletepl = evt => {
   console.log("delete pressed");
 };
 
-const onAddPlaylist = evt => {
-  evt.stopPropagation();
-  console.log("Add PL called");
+const RenameModal = ({ playlist, confirmCallback, cancelCallback }) => {
+  const newNameRef = useRef();
+
+  const onConfirmClick = () => {
+    // console.log(newNameRef.current.value);
+    // Existing playlist or new playlist
+    playlist
+      ? confirmCallback(newNameRef.current.value, playlist)
+      : confirmCallback(newNameRef.current.value);
+  };
+
+  return (
+    <FullScreenOverlay>
+      <section className="d-flex flex-column">
+        {/* <p>Renaming {playlist.name}</p> */}
+        <input
+          className="mb-1 "
+          ref={newNameRef}
+          placeholder={playlist ? playlist.name : "new playlist"}
+        />
+        <section className="d-flex flex-row">
+          <button className="w-50 noselect" onClick={onConfirmClick}>
+            Confirm
+          </button>
+          <button className="w-50 noselect" onClick={cancelCallback}>
+            Cancel
+          </button>
+        </section>
+      </section>
+    </FullScreenOverlay>
+  );
 };
 
 const PlaylistContainer = ({ playlists, library }) => {
+  let [modalOpen, setModalOpen] = useState(false);
+  let [focusPlaylistId, setFocusPlaylistId] = useState(-1);
+  let [isNewPlaylist, setIsNewPlaylist] = useState(false);
+
+  const onRenameConfirm = async (name, playlist) => {
+    console.log("yes ", name, " : ", playlist.id);
+    setModalOpen(false);
+  };
+
+  const onRenameCancel = id => {
+    console.log("no ", id);
+    setModalOpen(false);
+  };
+
+  const onNewPlConfirm = name => {
+    console.log("new playlist ", name);
+    setIsNewPlaylist(false);
+  };
+
+  const onNewPlCancel = () => {
+    setIsNewPlaylist(false);
+  };
+
+  const onAddPlaylist = evt => {
+    evt.stopPropagation();
+    setModalOpen(true);
+    setIsNewPlaylist(true);
+    console.log("Add PL called");
+  };
+
   return (
     <>
       <section
@@ -82,6 +141,13 @@ const PlaylistContainer = ({ playlists, library }) => {
             playlists.map((list, idx) => {
               return (
                 <section key={idx} className="PlaylistContainer-contents">
+                  {modalOpen && list.id === focusPlaylistId && (
+                    <RenameModal
+                      playlist={list}
+                      confirmCallback={onRenameConfirm}
+                      cancelCallback={onRenameCancel}
+                    />
+                  )}
                   <h3
                     className="d-flex align-items-center justify-content-between noselect"
                     onClick={onPlaylistClick}
@@ -94,6 +160,8 @@ const PlaylistContainer = ({ playlists, library }) => {
                             menuTag: "Rename",
                             menuAction: () => {
                               console.log(`renamin ${list.name}`);
+                              setFocusPlaylistId(list.id);
+                              setModalOpen(true);
                             }
                           },
                           {
@@ -130,6 +198,12 @@ const PlaylistContainer = ({ playlists, library }) => {
           <section onClick={onClose} className="PlaylistContainer-controls ">
             <Octicon icon={X} size="medium" />
           </section>
+          {modalOpen && isNewPlaylist && (
+            <RenameModal
+              confirmCallback={onNewPlConfirm}
+              cancelCallback={onNewPlCancel}
+            />
+          )}
           <section
             onClick={onAddPlaylist}
             className="d-flex justify-content-center align-items-center noselect"

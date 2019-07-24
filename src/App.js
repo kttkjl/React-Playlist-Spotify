@@ -68,7 +68,6 @@ function App() {
         clearPlaylists
       }}
     >
-      <FullScreenOverlay />
       <div className="App vh-100">
         <div className="d-flex flex-column align-items-start h-100">
           <section className="d-flex flex-grow-1 vw-100 position-relative overflow-hidden">
