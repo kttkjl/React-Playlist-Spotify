@@ -1,0 +1,36 @@
+.FullScreenOverlay {
+  position: fixed;
+  display: flex;
+  &.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: +1;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba($bg-color-dark, 0.7);
+    .FullScreenOverlay-content {
+      height: auto;
+      width: auto;
+    }
+  }
+  height: 0;
+  width: 0;
+  & &-content {
+    margin: auto;
+    background-color: $content-color;
+    color: $bg-color-dark;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+  }
+  button {
+    background-color: $content-color;
+    border: 1px solid $bg-color-primary;
+    border-left: none;
+    border-bottom: none;
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Octicon, { ThreeBars } from "@primer/octicons-react";
-import Dropdown from "../Dropdown/Dropdown";
+import Octicon, { Trashcan } from "@primer/octicons-react";
 const propTypes = {
   song: PropTypes.shape({
     album: PropTypes.string,
@@ -24,14 +23,19 @@ const defaultProps = {
 
 const PlaylistItem = ({ song }) => {
   return (
-    <section className="PlaylistItem d-flex flex-row">
+    <section className="PlaylistItem d-flex flex-row ">
       <section className="PlaylistItem-desc d-flex flex-column flex-grow-1 ">
         <h4>{song.title}</h4>
         <p>{song.artist}</p>
         <p>{song.album}</p>
       </section>
-      <section className="PlaylistItem-menu d-flex align-items-center">
-        <Dropdown />
+      <section
+        onClick={() => {
+          console.log("deleted");
+        }}
+        className="PlaylistItem-menu d-flex align-items-center p-2"
+      >
+        <Octicon icon={Trashcan} size="small" verticalAlign="middle" />
       </section>
     </section>
   );
