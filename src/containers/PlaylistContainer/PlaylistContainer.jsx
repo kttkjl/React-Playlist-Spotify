@@ -1,20 +1,30 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import $ from "jquery";
-import Octicon, { X, Trashcan, Plus } from "@primer/octicons-react";
+import Octicon, { X, Plus } from "@primer/octicons-react";
 import PlaylistItem from "../../components/PlaylistItem/PlaylistItem";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import FullScreenOverlay from "../../components/FullScreenOverlay/FullScreenOverlay";
+import { playListContext } from "../../App";
 
-// const propTypes = {
-//   song: PropTypes.shape({
-//     album: PropTypes.string,
-//     duration: PropTypes.number,
-//     title: PropTypes.string,
-//     id: PropTypes.number,
-//     artist: PropTypes.string
-//   })
-// };
+const propTypes = {
+  playlists: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      songs: PropTypes.array
+    })
+  ),
+  library: PropTypes.objectOf(
+    PropTypes.shape({
+      album: PropTypes.string,
+      duration: PropTypes.number,
+      title: PropTypes.string,
+      id: PropTypes.number,
+      artist: PropTypes.string
+    }).isRequired
+  )
+};
 
 const defaultProps = {
   playlists: [
@@ -38,7 +48,7 @@ const defaultProps = {
 const onPlaylistClick = evt => {
   // console.log(evt.target.parentNode.querySelector("section").classList);
   evt.stopPropagation();
-  evt.target.parentNode
+  evt.currentTarget.parentNode
     .querySelector(".collapseable")
     .classList.toggle("closed");
 };
@@ -54,11 +64,10 @@ const onClose = evt => {
   $("#PlaylistContainer-overlay").removeClass("active");
 };
 
-const onDeletepl = evt => {
-  evt.stopPropagation();
-  console.log("delete pressed");
-};
-
+/**
+ * Custom modal for when user wants to (re)name a (new) playlist
+ * @param {} param0
+ */
 const RenameModal = ({ playlist, confirmCallback, cancelCallback }) => {
   const newNameRef = useRef();
 
@@ -96,23 +105,29 @@ const PlaylistContainer = ({ playlists, library }) => {
   let [modalOpen, setModalOpen] = useState(false);
   let [focusPlaylistId, setFocusPlaylistId] = useState(-1);
   let [isNewPlaylist, setIsNewPlaylist] = useState(false);
+  let plContext = useContext(playListContext);
 
   const onRenameConfirm = async (name, playlist) => {
-    console.log("yes ", name, " : ", playlist.id);
+    // console.log("yes ", name, " : ", playlist.id);
+    plContext.savePlaylist(playlist, name);
+    setFocusPlaylistId(-1);
     setModalOpen(false);
   };
 
   const onRenameCancel = id => {
-    console.log("no ", id);
+    // console.log("no ", id);
+    setFocusPlaylistId(-1);
     setModalOpen(false);
   };
 
   const onNewPlConfirm = name => {
-    console.log("new playlist ", name);
+    // console.log("new playlist ", name);
     setIsNewPlaylist(false);
+    plContext.savePlaylist(null, name);
   };
 
   const onNewPlCancel = () => {
+    setModalOpen(false);
     setIsNewPlaylist(false);
   };
 
@@ -120,7 +135,7 @@ const PlaylistContainer = ({ playlists, library }) => {
     evt.stopPropagation();
     setModalOpen(true);
     setIsNewPlaylist(true);
-    console.log("Add PL called");
+    // console.log("Add PL called");
   };
 
   return (
@@ -148,12 +163,14 @@ const PlaylistContainer = ({ playlists, library }) => {
                       cancelCallback={onRenameCancel}
                     />
                   )}
-                  <h3
-                    className="d-flex align-items-center justify-content-between noselect"
+                  <div
                     onClick={onPlaylistClick}
+                    className="d-flex align-items-center justify-content-between"
                   >
-                    {`[${list.id}] : ${list.name}`}
-                    <span>
+                    <h3 className="noselect">
+                      {`[${list.id}] : ${list.name}`}
+                    </h3>
+                    <div className="d-flex">
                       <Dropdown
                         menuItems={[
                           {
@@ -168,12 +185,13 @@ const PlaylistContainer = ({ playlists, library }) => {
                             menuTag: "Delete",
                             menuAction: () => {
                               console.log(`deletin ${list.name}`);
+                              plContext.deletePlaylist(list.id);
                             }
                           }
                         ]}
                       />
-                    </span>
-                  </h3>
+                    </div>
+                  </div>
                   <section className="collapseable closed">
                     {list.songs && list.songs.length > 0 ? (
                       list.songs.map((song_id, idx2) => {
@@ -217,7 +235,7 @@ const PlaylistContainer = ({ playlists, library }) => {
   );
 };
 
-// PlaylistContainer.propTypes = propTypes;
+PlaylistContainer.propTypes = propTypes;
 PlaylistContainer.defaultProps = defaultProps;
 
 export default PlaylistContainer;

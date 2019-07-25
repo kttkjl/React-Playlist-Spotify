@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Octicon, { Trashcan } from "@primer/octicons-react";
-import FullScreenOverlay from "../FullScreenOverlay/FullScreenOverlay";
 const propTypes = {
   song: PropTypes.shape({
     album: PropTypes.string,

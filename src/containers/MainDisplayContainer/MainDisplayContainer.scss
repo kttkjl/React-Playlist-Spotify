@@ -1,13 +1,12 @@
 .MaindisplayContainer {
   background-color: $bg-color-light;
-  width: 100%;
+  // width: 100%;
+  min-width: 0;
   transition: width 0.25s;
   margin-right: 1rem;
 
-  /* Optional: show position indicator in red */
   ::-webkit-scrollbar-thumb {
-    // width: 10px;
-    background: #ff0000;
+    background: $content-color-highlight;
   }
 
   /*When it is big enough*/
@@ -22,4 +21,20 @@
   background-color: $bg-color-primary;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.FilterBar {
+  p {
+    margin: 0;
+  }
+  ul {
+    margin: 0;
+    li {
+      &.active {
+        color: $content-color-highlight;
+        border-bottom: 1px solid $content-color-highlight;
+      }
+      margin-right: 1.5rem;
+    }
+  }
 }

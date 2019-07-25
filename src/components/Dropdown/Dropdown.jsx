@@ -2,23 +2,20 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Octicon, { ThreeBars } from "@primer/octicons-react";
 
+const propTypes = {
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      menuAction: PropTypes.func,
+      menuTag: PropTypes.string
+    })
+  )
+};
+
 const defaultProps = {
   menuItems: [
     {
       menuAction: () => {
         console.log("fake1");
-      },
-      menuTag: "fake action"
-    },
-    {
-      menuAction: () => {
-        console.log("fake2");
-      },
-      menuTag: "fake action"
-    },
-    {
-      menuAction: () => {
-        console.log("fake3");
       },
       menuTag: "fake action"
     }
@@ -77,5 +74,6 @@ const Dropdown = ({ menuItems }) => {
   );
 };
 
+Dropdown.propTypes = propTypes;
 Dropdown.defaultProps = defaultProps;
 export default Dropdown;

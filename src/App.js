@@ -7,7 +7,6 @@ import Octicon, {
 import "./App.scss";
 import PlaylistContainer from "./containers/PlaylistContainer/PlaylistContainer";
 import MainDisplayContainer from "./containers/MainDisplayContainer/MainDisplayContainer";
-import FullScreenOverlay from "./components/FullScreenOverlay/FullScreenOverlay";
 let playlistUtils = require("./api-utils/playlist");
 let libraryUtils = require("./api-utils/library");
 
@@ -39,17 +38,67 @@ function App() {
     setPlayLists([]);
   };
 
-  const savePlaylist = async (playlistId, songs) => {
-    // setPlayLists( playlists => ({...playlists, }))
+  // API call to delete a playlist
+  const deletePlaylist = async playlistId => {
     try {
-      let res = await playlistUtils.savePlaylist(playlistId, songs);
-      console.log(res);
+      let res = await playlistUtils.deletePlaylist(playlistId);
+      console.log(res, res.status);
+      if (res.status === 200) {
+        let newPls = playlists.filter(pl => pl.id !== playlistId);
+        setPlayLists(newPls);
+      }
     } catch (e) {
       console.error(e);
     }
   };
 
-  const addSongToPlaylist = (pl, song) => {};
+  // API call to save playlist, existing or new
+  const savePlaylist = async (playlist, newPlayListName) => {
+    // setPlayLists( playlists => ({...playlists, }))
+    try {
+      console.log(`savePlaylist hit: ${playlist}, ${newPlayListName}`);
+      let res = await playlistUtils.savePlaylist(playlist, newPlayListName);
+      console.log(res);
+
+      // Update the App state
+      if (!playlist) {
+        // new playlist
+        let updatedPl = {
+          name: newPlayListName,
+          songs: [],
+          id: res.id
+        };
+        updateNewPlaylist(updatedPl);
+      } else {
+        // update old playlist
+        let updatedPl = {
+          name: newPlayListName ? newPlayListName : playlist.name,
+          songs: playlist.songs, // Expecting new songs to be massaged in
+          id: res.id
+        };
+        updateExistingPlaylist(res.id, updatedPl);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  // Update the Application state for a new playlist
+  const updateNewPlaylist = playlist => {
+    let newPls = [...playlists];
+    newPls.push(playlist);
+    // console.log("new playlist", newPls);
+    setPlayLists(newPls);
+  };
+
+  // Update the Application state for existing playlist
+  const updateExistingPlaylist = (playlistId, playlist) => {
+    let updated = [...playlists];
+    let idx = updated.findIndex(playlist => playlist.id === playlistId);
+    updated[idx] = playlist;
+    // console.log("updated playlist", updated);
+    setPlayLists(updated);
+  };
 
   useEffect(() => {
     // ComponentDidMount
@@ -62,10 +111,12 @@ function App() {
 
   return (
     // <>
-
     <playListContext.Provider
       value={{
-        clearPlaylists
+        clearPlaylists,
+        deletePlaylist,
+        savePlaylist,
+        playlists
       }}
     >
       <div className="App vh-100">
