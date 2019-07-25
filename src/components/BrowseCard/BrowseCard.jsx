@@ -110,9 +110,9 @@ const BrowseCard = ({ song }) => {
             {song.title}
           </div>
         </h5>
-        <p className="card-text"> {song.artist}</p>
-        <p className="card-text">
-          <small className="text-white">{song.album}</small>
+        <p className="card-text ellipsis"> {song.artist}</p>
+        <p className="card-text ">
+          <small className="text-white ellipsis">{song.album}</small>
         </p>
       </div>
       <div className="d-flex justify-content-end">
