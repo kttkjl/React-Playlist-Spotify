@@ -23,7 +23,9 @@
     "start-be": "node index.js",
     "start-dev-be": "nodemon -d index.js",
     "start-fe": "react-scripts start",
-    "start-all-dev": "run-p start-dev-be start-fe",
+    "start-all-dev": "run-p start-dev-be start-dev-fe",
+    "start-be-kmk": "pm2 index.js",
+    "start-all-kmk": "run-s build start-be-kmk",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
