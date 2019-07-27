@@ -31,7 +31,7 @@ const savePlaylist = async (playlist, newPlayListName) => {
 };
 
 const deletePlaylist = async playlistId => {
-  let url = `${process.env.PUBLIC_URL}/${playlistId}`;
+  let url = `${process.env.PUBLIC_URL}/playlist/${playlistId}`;
   let options = {
     method: "DELETE"
   };
