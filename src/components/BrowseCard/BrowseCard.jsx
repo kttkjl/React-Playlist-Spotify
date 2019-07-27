@@ -98,7 +98,7 @@ const BrowseCard = ({ song }) => {
     let item = `albArt.${song.artist}.${song.album}`;
     let local = localStorage.getItem(item);
     if (!local) {
-      let url = `http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1ed82a7324057feecb1eebd5af5dbb80&artist=${
+      let url = `https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1ed82a7324057feecb1eebd5af5dbb80&artist=${
         song.artist
       }&album=${song.album}&format=json`;
       let res = await fetch(url);
