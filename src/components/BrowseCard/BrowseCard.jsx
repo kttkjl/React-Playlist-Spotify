@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import FullScreenOverlay from "../FullScreenOverlay/FullScreenOverlay";
 import { playListContext } from "../../App";
@@ -94,7 +94,7 @@ const BrowseCard = ({ song }) => {
     }
   };
 
-  const getAlbumArt = async () => {
+  const getAlbumArt = useCallback(async () => {
     let item = `albArt.${song.artist}.${song.album}`;
     let local = localStorage.getItem(item);
     if (!local) {
@@ -115,12 +115,12 @@ const BrowseCard = ({ song }) => {
       // Have it, load it
       setAlbumArt(local);
     }
-  };
+  }, [song.album, song.artist]);
 
   useEffect(() => {
     getAlbumArt();
     return () => {};
-  }, []);
+  }, [getAlbumArt]);
 
   return (
     <div className="BrowseCard card text-white bg-dark">
