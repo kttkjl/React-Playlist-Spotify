@@ -7,10 +7,10 @@ Live demo at: https://aws.koumakan.work/ReactSpotify
 3. `npm run start-all-dev`
 4. navigate to `localhost:3000`
 
-# Desktop mode
+## Desktop mode
 ![alt text](https://i.imgur.com/IMTxWEv.png "Preview")
 
-# Mobile mode
+## Mobile mode
 ![alt text](https://i.imgur.com/zh4eMjZ.png "Preview")
 
 ## Production build coming soon (TM)
