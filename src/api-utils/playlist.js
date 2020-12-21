@@ -1,8 +1,5 @@
-let domain = process.env.REACT_APP_DOMAIN || "localhost";
-let port = process.env.REACT_APP_PORT || 5000;
-
 const getAllPlaylists = async function() {
-  const response = await fetch(`${domain}:${port}/playlist`);
+  const response = await fetch(`${process.env.PUBLIC_URL}/playlist`);
   const json = await response.json();
   return json;
 };
@@ -17,7 +14,7 @@ const getAllPlaylists = async function() {
  * @param {updated playlistname for existing or new playlist} newPlayListName
  */
 const savePlaylist = async (playlist, newPlayListName) => {
-  let url = `${domain}:${port}/playlist${playlist ? `/${playlist.id}` : ""}`;
+  let url = `${process.env.PUBLIC_URL}/playlist${playlist ? `/${playlist.id}` : ""}`;
   console.log(`url :  ${url} `);
   let options = {
     method: "POST",
@@ -34,7 +31,7 @@ const savePlaylist = async (playlist, newPlayListName) => {
 };
 
 const deletePlaylist = async playlistId => {
-  let url = `${domain}:${port}/${playlistId}`;
+  let url = `${process.env.PUBLIC_URL}/playlist/${playlistId}`;
   let options = {
     method: "DELETE"
   };

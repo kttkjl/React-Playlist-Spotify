@@ -30,9 +30,7 @@ const PlaylistItem = ({ song }) => {
         <p>{song.album}</p>
       </section>
       <section
-        onClick={() => {
-          console.log("deleted");
-        }}
+        onClick={() => {}}
         className="PlaylistItem-menu d-flex align-items-center p-2"
       >
         <Octicon icon={Trashcan} size="small" verticalAlign="middle" />

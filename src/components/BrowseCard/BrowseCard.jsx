@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import FullScreenOverlay from "../FullScreenOverlay/FullScreenOverlay";
 import { playListContext } from "../../App";
@@ -66,6 +66,7 @@ const AddToPLModal = ({ song, confirmCallback, cancelCallback }) => {
 const BrowseCard = ({ song }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [marquee, setMarquee] = useState(false);
+  const [albumArt, setAlbumArt] = useState("");
   // const [currentSongId, setCurrentSongId] = useState(-1);
   let dropdownItems = [
     {
@@ -93,11 +94,39 @@ const BrowseCard = ({ song }) => {
     }
   };
 
+  const getAlbumArt = useCallback(async () => {
+    let item = `albArt.${song.artist}.${song.album}`;
+    let local = localStorage.getItem(item);
+    if (!local) {
+      let url = `https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=1ed82a7324057feecb1eebd5af5dbb80&artist=${
+        song.artist
+      }&album=${song.album}&format=json`;
+      let res = await fetch(url);
+      let json = await res.json();
+      let imageUrl;
+      if (json.error || !json.album.image[2]["#text"]) {
+        imageUrl = "https://i.imgur.com/nvK2vj3.png";
+      } else {
+        imageUrl = json.album.image[2]["#text"];
+      }
+      localStorage.setItem(item, imageUrl);
+      setAlbumArt(imageUrl);
+    } else {
+      // Have it, load it
+      setAlbumArt(local);
+    }
+  }, [song.album, song.artist]);
+
+  useEffect(() => {
+    getAlbumArt();
+    return () => {};
+  }, [getAlbumArt]);
+
   return (
     <div className="BrowseCard card text-white bg-dark">
       <img
         className="card-img-top"
-        src="https://i.imgur.com/nvK2vj3.png"
+        src={albumArt ? albumArt : "https://i.imgur.com/nvK2vj3.png"}
         alt="Card cap"
       />
       <div className="card-body">

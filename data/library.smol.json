@@ -1,0 +1,583 @@
+[
+  {
+    "album": "The All-American Rejects",
+    "duration": 208,
+    "title": "Don't Leave Me",
+    "id": 6,
+    "artist": "The All-American Rejects"
+  },
+  {
+    "album": "The All-American Rejects",
+    "duration": 245,
+    "title": "Too Far Gone",
+    "id": 7,
+    "artist": "The All-American Rejects"
+  },
+  {
+    "album": "The All-American Rejects",
+    "duration": 180,
+    "title": "Drive Away",
+    "id": 8,
+    "artist": "The All-American Rejects"
+  },
+  {
+    "album": "The All-American Rejects",
+    "duration": 260,
+    "title": "Happy Endings",
+    "id": 9,
+    "artist": "The All-American Rejects"
+  },
+  {
+    "album": "The All-American Rejects",
+    "duration": 300,
+    "title": "The Last Song",
+    "id": 10,
+    "artist": "The All-American Rejects"
+  },
+  {
+    "album": "Andy Grammer",
+    "duration": 190,
+    "title": "Keep Your Head Up",
+    "id": 11,
+    "artist": "Andy Grammer"
+  },
+  {
+    "album": "Funeral",
+    "duration": 288,
+    "title": "Neighborhood #1 (Tunnels)",
+    "id": 12,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Funeral",
+    "duration": 212,
+    "title": "Neighborhood #2 (Laika)",
+    "id": 13,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Funeral",
+    "duration": 221,
+    "title": "Une Ann\u00e9e Sans Lumiere",
+    "id": 14,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Funeral",
+    "duration": 312,
+    "title": "Neighbourhood #3 (Power Out)",
+    "id": 15,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Funeral",
+    "duration": 289,
+    "title": "Neighborhood #4 (Kettles)",
+    "id": 16,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Funeral",
+    "duration": 282,
+    "title": "Crown Of Love",
+    "id": 17,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Funeral",
+    "duration": 335,
+    "title": "Wake Up",
+    "id": 18,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Funeral",
+    "duration": 247,
+    "title": "Haiti",
+    "id": 19,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Funeral",
+    "duration": 310,
+    "title": "Rebellion (Lies)",
+    "id": 20,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Funeral",
+    "duration": 380,
+    "title": "In The Backseat",
+    "id": 21,
+    "artist": "Arcade Fire"
+  },
+  {
+    "album": "Bloom",
+    "duration": 258,
+    "title": "Myth",
+    "id": 22,
+    "artist": "Beach House"
+  },
+  {
+    "album": "Bloom",
+    "duration": 298,
+    "title": "Wild",
+    "id": 23,
+    "artist": "Beach House"
+  },
+  {
+    "album": "Bloom",
+    "duration": 325,
+    "title": "New Year",
+    "id": 28,
+    "artist": "Beach House"
+  },
+  {
+    "album": "Bloom",
+    "duration": 286,
+    "title": "Wishes",
+    "id": 29,
+    "artist": "Beach House"
+  },
+  {
+    "album": "Bloom",
+    "duration": 332,
+    "title": "On the Sea",
+    "id": 30,
+    "artist": "Beach House"
+  },
+  {
+    "album": "Bloom",
+    "duration": 1017,
+    "title": "Irene",
+    "id": 31,
+    "artist": "Beach House"
+  },
+  {
+    "album": "Modern Guilt",
+    "duration": 176,
+    "title": "Gamma Ray",
+    "id": 32,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 202,
+    "title": "E-Pro",
+    "id": 33,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 209,
+    "title": "Que' Onda Guero",
+    "id": 34,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 209,
+    "title": "Girl",
+    "id": 35,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 283,
+    "title": "Missing",
+    "id": 36,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 167,
+    "title": "Black Tambourine",
+    "id": 37,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 266,
+    "title": "Earthquake Weather",
+    "id": 38,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 197,
+    "title": "Hell Yes",
+    "id": 39,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 269,
+    "title": "Broken Drum",
+    "id": 40,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 255,
+    "title": "Scarecrow",
+    "id": 41,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 248,
+    "title": "Go It Alone",
+    "id": 42,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 258,
+    "title": "Farewell Ride",
+    "id": 43,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 186,
+    "title": "Rental Car",
+    "id": 44,
+    "artist": "Beck"
+  },
+  {
+    "album": "Guero",
+    "duration": 243,
+    "title": "Emergency Exit",
+    "id": 45,
+    "artist": "Beck"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 232,
+    "title": "One Angry Dwarf And 200 Solemn Faces",
+    "id": 46,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 355,
+    "title": "Fair",
+    "id": 47,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 271,
+    "title": "Brick",
+    "id": 48,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 220,
+    "title": "Song For The Dumped",
+    "id": 49,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 369,
+    "title": "Selfless, Cold and Composed",
+    "id": 50,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 193,
+    "title": "Kate",
+    "id": 51,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 292,
+    "title": "Smoke",
+    "id": 52,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 97,
+    "title": "Cigarette",
+    "id": 53,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 207,
+    "title": "Steven's Last Night In Town",
+    "id": 54,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 195,
+    "title": "Battle of Who Could Care Less",
+    "id": 55,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 259,
+    "title": "Missing The War",
+    "id": 56,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Whatever and Ever Amen",
+    "duration": 265,
+    "title": "Evaporated",
+    "id": 57,
+    "artist": "Ben Folds Five"
+  },
+  {
+    "album": "Brothers",
+    "duration": 203,
+    "title": "Everlasting Light",
+    "id": 58,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 198,
+    "title": "Next Girl",
+    "id": 59,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 211,
+    "title": "Tighten Up",
+    "id": 60,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 191,
+    "title": "Howlin\u2019 For You",
+    "id": 61,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 186,
+    "title": "She\u2019s Long Gone",
+    "id": 62,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 129,
+    "title": "Black Mud",
+    "id": 63,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 300,
+    "title": "The Only One",
+    "id": 64,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 204,
+    "title": "Too Afraid To Love",
+    "id": 65,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 269,
+    "title": "Ten Cent Pistol",
+    "id": 66,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 224,
+    "title": "Sinister Kid",
+    "id": 67,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 216,
+    "title": "The Go Getter",
+    "id": 68,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 229,
+    "title": "I\u2019m Not The One",
+    "id": 69,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 239,
+    "title": "Unknown Brother",
+    "id": 70,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 218,
+    "title": "Never Gonna Give You Up",
+    "id": 71,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Brothers",
+    "duration": 311,
+    "title": "These Days",
+    "id": 72,
+    "artist": "The Black Keys"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 143,
+    "title": "Feed Me to the Forest",
+    "id": 73,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 157,
+    "title": "Trash Flavored Trash",
+    "id": 74,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 194,
+    "title": "Love Rhymes With Hideous Car Wreck",
+    "id": 75,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 271,
+    "title": "Peacock Skeleton With Crooked Feathers",
+    "id": 76,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 127,
+    "title": "Teen Heat",
+    "id": 77,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 231,
+    "title": "Rats and Rats and Rats For Candy",
+    "id": 78,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 240,
+    "title": "Crimes",
+    "id": 79,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 169,
+    "title": "My First Kiss At The Public Execution",
+    "id": 80,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 191,
+    "title": "Live At the Apocalypse Cabaret",
+    "id": 81,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 107,
+    "title": "Beautiful Horses",
+    "id": 82,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 208,
+    "title": "Wolf Party",
+    "id": 83,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 136,
+    "title": "Celebrator",
+    "id": 84,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 164,
+    "title": "Devastator",
+    "id": 85,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 166,
+    "title": "Ladies and Gentlemen (off the Love Rhymes With Hideous Car Wreck single) [Bonus Track]",
+    "id": 86,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 294,
+    "title": "Metronomes (off the Love Rhymes With Hideous Car Wreck single) [Bonus Track]",
+    "id": 87,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 235,
+    "title": "Crimes (Alt. Version) [off the Love Rhymes With Hideous Car Wreck EP] [Bonus Track]",
+    "id": 88,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 209,
+    "title": "Peacock Skeleton with Crooked Feathers (Alt. Version) [off the Love Rhymes With Hideous Car Wreck EP] [Bonus Track]",
+    "id": 89,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 200,
+    "title": "Love Rhymes with Hideous Car Wreck (Live) [off the Love Rhymes With Hideous Car Wreck EP] [Bonus Track]",
+    "id": 90,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Crimes [Bonus Track Version]",
+    "duration": 164,
+    "title": "Trash Flavored Trash - Live (Reading Festival 2005) [Bonus Track]",
+    "id": 91,
+    "artist": "The Blood Brothers"
+  },
+  {
+    "album": "Spectrum (Radio Mix)",
+    "duration": 243,
+    "title": "Spectrum (Radio Mix)",
+    "id": 616,
+    "artist": "ZEDD"
+  }
+]
